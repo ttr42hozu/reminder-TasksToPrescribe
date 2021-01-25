@@ -8,4 +8,5 @@ class User < ApplicationRecord
     validates :nickname
     validates :password_confirmation
   end
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze }
 end
