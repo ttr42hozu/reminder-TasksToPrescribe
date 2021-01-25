@@ -9,7 +9,7 @@
   background-color: gray;
   width: 100vw;
   height: 80px;
-  padding: 0 15vw;
+  padding: 0 10vw;
   display: flex;
   justify-content: space-between;
 }
@@ -21,11 +21,11 @@
   margin: auto 0;
 }
 .header-nav {
-  width: 20vw;
+  width: 30vw;
   display: flex;
 }
 li {
-  width: 100px;
+  padding: 20px;
   text-align: center;
   margin: auto 0;
 }
