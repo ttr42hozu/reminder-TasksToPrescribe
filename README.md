@@ -36,7 +36,7 @@ has_many :medicines
 
 ### Association
 belongs_to :patient
-belongs_to :preparation
+has_one :preparation
 
 ## preparations テーブル
 
@@ -45,5 +45,5 @@ belongs_to :preparation
 | user   | references | foreign_key: true |
 
 ### Association
-has_many :medicines
+belongs_to :medicines
 belongs_to :user
