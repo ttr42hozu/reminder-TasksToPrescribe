@@ -30,7 +30,7 @@ has_many :medicines
 | name        | string     | null: false       |
 | usage_id    | integer    | null: false       |
 | dose_id     | integer    | null: false       |
-| days_id     | integer    | null: false       |
+| day_id      | integer    | null: false       |
 | patient     | references | foreign_key: true |
 | preparation | references | foreign_key: true |
 
