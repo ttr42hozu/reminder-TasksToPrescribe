@@ -6,4 +6,6 @@ class Usage < ActiveHash::Base
     { id = 4, name = 'TID'}
     { id = 5, name = 'EOD'}
   ]
+  include ActiveHash::Associations
+  has_many :medicines
 end
