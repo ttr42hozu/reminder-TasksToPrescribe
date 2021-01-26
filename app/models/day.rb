@@ -6,4 +6,6 @@ class Day < ActiveHash::Base
     {id: 4, name: '28日'},
     {id: 5, name: '56日'}
   ]
+  include ActiveHash::Associations
+  has_many :medicines
 end
