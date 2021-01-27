@@ -1,0 +1,21 @@
+<%= form_with model: @patient_medicine, url: patients_path, local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+  患者画像
+  <%= f.file_field :image %>
+  カルテNO
+  <%= f.text_field :medical_record_number %>
+  名前
+  <%= f.text_field :last_name, placeholder: "例）田中" %>
+  <%= f.text_field :first_name, placeholder: "例）ニャンコ" %>
+  お薬名
+  <%= f.text_field :name %>
+  用法
+  <%= f.collection_select(:usage_id, Usage.all, :id, :name, {}, {}) %>
+  用量
+  <%= f.collection_select(:dose_id, Dose.all, :id, :name, {}, {}) %>
+  日数
+  <%= f.collection_select(:day_id, Day.all, :id, :name, {}, {}) %>
+  開始日
+  <%= f.date_field :start_day %>
+  <%= f.submit '登録'%>
+<% end %>
