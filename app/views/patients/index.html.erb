@@ -1,1 +1,21 @@
 <%= render "shared/header"%>
+<div class='main' >
+  <div class='left-content'>
+    <% @medicines.each do |medicine| %>
+      <% if Date.today == medicine.start_day + medicine.day.name %>
+        <% if medicine.patient.image.present? %>
+          <%= image_tag medicine.patient.image, class: 'patient-img'%>
+        <% else %>
+          <%= image_tag 'no_image.png', class: 'patient-img'%>
+        <% end %>
+        <%= medicine.patient.medical_record_number %>
+        <%= medicine.patient.last_name %>
+        <%= medicine.patient.first_name %>
+        <%= medicine.start_day + medicine.day.name %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class='right-content'>
+
+  </div>
+</div>
