@@ -3,12 +3,8 @@
 }
 .top-page-header {
   width: 100vw;
-  height: 100vh;
-}
-.inner {
-  background-color: gray;
-  width: 100vw;
   height: 80px;
+  background-color: gray;
   padding: 0 10vw;
   display: flex;
   justify-content: space-between;
@@ -19,6 +15,10 @@
   font-size: 30px;
   text-align: center;
   margin: auto 0;
+}
+.app-title-link {
+  text-decoration: none;
+  color: black;
 }
 .header-nav {
   width: 30vw;

@@ -1,11 +1,10 @@
 class PatientsController < ApplicationController
   def index
-    
+    @medicines = Medicine.all
   end
 
   def new
     @patient_medicine = PatientMedicine.new
-
   end
 
   def create
