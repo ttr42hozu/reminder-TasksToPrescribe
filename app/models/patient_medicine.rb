@@ -6,12 +6,13 @@ class PatientMedicine
     validates :medical_record_number, format: {with: /\A\d+-\d+\z/}
     validates :last_name
     validates :first_name
-    validates :start_day
     validates :user_id
     validates :name
     validates :usage_id, numericality: {other_than: 1}
     validates :dose_id, numericality: {other_than: 1}
     validates :day_id, numericality: {other_than: 1}
+    validates :start_day
+    validates :patient_id
   end
 
   def save
