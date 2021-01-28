@@ -1,2 +1,0 @@
-class PreparationController < ApplicationController
-end
