@@ -12,7 +12,6 @@ class PatientMedicine
     validates :dose_id, numericality: {other_than: 1}
     validates :day_id, numericality: {other_than: 1}
     validates :start_day
-    validates :patient_id
   end
 
   def save
