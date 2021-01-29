@@ -1,21 +1,38 @@
 <%= render "shared/header"%>
 <div class='main' >
   <div class='left-content'>
-    <% @medicines.each do |medicine| %>
-      <% if Date.today == medicine.start_day + medicine.day.name %>
-        <% if medicine.patient.image.present? %>
-          <%= image_tag medicine.patient.image, class: 'patient-img'%>
-        <% else %>
-          <%= image_tag 'no_image.png', class: 'patient-img'%>
+    <% @patients.each do |patient| %>
+      <% patient.medicines.each do |medicine|%>
+        <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.blank? %>
+          <% if patient.image.present? %>
+            <%= image_tag patient.image, class: 'patient-img'%>
+          <% else %>
+            <%= image_tag 'no_image.png', class: 'patient-img'%>
+          <% end %>
+          <%= patient.medical_record_number %>
+          <%= patient.last_name %>
+          <%= patient.first_name %>
+          <%= medicine.start_day + medicine.day.name %>
+          <%= link_to '用意完了', patient_preparations_path(patient.id, medicine_id: medicine.id), method: :post%>
         <% end %>
-        <%= medicine.patient.medical_record_number %>
-        <%= medicine.patient.last_name %>
-        <%= medicine.patient.first_name %>
-        <%= medicine.start_day + medicine.day.name %>
       <% end %>
     <% end %>
   </div>
   <div class='right-content'>
-
+        <% @patients.each do |patient| %>
+      <% patient.medicines.each do |medicine|%>
+        <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.present? %>
+          <% if patient.image.present? %>
+            <%= image_tag patient.image, class: 'patient-img'%>
+          <% else %>
+            <%= image_tag 'no_image.png', class: 'patient-img'%>
+          <% end %>
+          <%= patient.medical_record_number %>
+          <%= patient.last_name %>
+          <%= patient.first_name %>
+          <%= medicine.start_day + medicine.day.name %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
