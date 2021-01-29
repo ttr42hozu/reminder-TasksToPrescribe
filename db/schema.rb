@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_021617) do
+ActiveRecord::Schema.define(version: 2021_01_28_103115) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_01_27_021617) do
     t.bigint "patient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "start_day"
     t.index ["patient_id"], name: "index_medicines_on_patient_id"
   end
 
@@ -52,6 +53,15 @@ ActiveRecord::Schema.define(version: 2021_01_27_021617) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_patients_on_user_id"
+  end
+
+  create_table "preparations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "medicine_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["medicine_id"], name: "index_preparations_on_medicine_id"
+    t.index ["user_id"], name: "index_preparations_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,4 +80,6 @@ ActiveRecord::Schema.define(version: 2021_01_27_021617) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "medicines", "patients"
   add_foreign_key "patients", "users"
+  add_foreign_key "preparations", "medicines"
+  add_foreign_key "preparations", "users"
 end
