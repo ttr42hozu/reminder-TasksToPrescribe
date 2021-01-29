@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   def index
-    @medicines = Medicine.all
+    @patients = Patient.all.includes(:medicines)
   end
 
   def new
