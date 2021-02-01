@@ -11,10 +11,26 @@ class PreparationsController < ApplicationController
 
   def destroy
     @preparation = Preparation.find(params[:id])
-    if current_user.id = @preparation.id
+    @medicine = Medicine.find(@preparation.medicine.id)
+    @patient = Patient.find(params[:patient_id])
+    if current_user.id == @preparation.user.id
       @preparation.destroy
+      @medicine.destroy
+      @patient.destroy
     end
+    redirect_to root_path
   end
+  
+  def update
+    @preparation = Preparation.find(params[:id])
+    @medicine = Medicine.find(@preparation.medicine.id)
+    if current_user.id == @preparation.user.id
+      @preparation.destroy
+      @medicine.update(start_day: @medicine.start_day + @medicine.day.name)
+    end
+    redirect_to root_path
+  end
+
   private
   
   def preparation_params
