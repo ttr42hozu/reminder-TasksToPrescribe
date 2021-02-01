@@ -1,40 +1,46 @@
 <%= render "shared/header"%>
 <div class='main' >
   <div class='left-content'>
-    <% @patients.each do |patient| %>
-      <% patient.medicines.each do |medicine|%>
-        <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.blank? %>
-          <% if patient.image.present? %>
-            <%= image_tag patient.image, class: 'patient-img'%>
-          <% else %>
-            <%= image_tag 'no_image.png', class: 'patient-img'%>
+    <h2 class='ribbon'>お薬の用意がまだの患者様はこちら</h2>
+    <div class='left-patient-data'>
+      <% @patients.each do |patient| %>
+        <% patient.medicines.each do |medicine|%>
+          <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.blank? %>
+            <% if patient.image.present? %>
+              <%= image_tag patient.image, class: 'patient-img'%>
+            <% else %>
+              <%= image_tag 'no_image.png', class: 'patient-img'%>
+            <% end %>
+            <%= patient.medical_record_number %>
+            <%= patient.last_name %>
+            <%= patient.first_name %>
+            <%= medicine.start_day + medicine.day.name %>
+            <%= link_to '用意完了', patient_preparations_path(patient.id, medicine_id: medicine.id), method: :post%>
           <% end %>
-          <%= patient.medical_record_number %>
-          <%= patient.last_name %>
-          <%= patient.first_name %>
-          <%= medicine.start_day + medicine.day.name %>
-          <%= link_to '用意完了', patient_preparations_path(patient.id, medicine_id: medicine.id), method: :post%>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <div class='right-content'>
-        <% @patients.each do |patient| %>
-      <% patient.medicines.each do |medicine|%>
-        <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.present? %>
-          <% if patient.image.present? %>
-            <%= image_tag patient.image, class: 'patient-img'%>
-          <% else %>
-            <%= image_tag 'no_image.png', class: 'patient-img'%>
+    <h2 class='ribbon'>お薬の用意ができている患者様はこちら</h2>
+    <div class='right-patient-data'>
+      <% @patients.each do |patient| %>
+        <% patient.medicines.each do |medicine|%>
+          <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.present? %>
+            <% if patient.image.present? %>
+              <%= image_tag patient.image, class: 'patient-img'%>
+            <% else %>
+              <%= image_tag 'no_image.png', class: 'patient-img'%>
+            <% end %>
+            <%= patient.medical_record_number %>
+            <%= patient.last_name %>
+            <%= patient.first_name %>
+            <%= medicine.start_day + medicine.day.name %>
+            <%= link_to '継続', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :patch %>
+            <%= link_to '終了', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :delete %>
           <% end %>
-          <%= patient.medical_record_number %>
-          <%= patient.last_name %>
-          <%= patient.first_name %>
-          <%= medicine.start_day + medicine.day.name %>
-          <%= link_to '継続', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :patch %>
-          <%= link_to '終了', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :delete %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -1,15 +1,45 @@
 .main {
   height: 100vh;
   display: flex;
+  margin-top: 10px;
 }
 .left-content {
   width: 50vw;
   height: 100vh;
+  padding: 0px 20px;
 }
+.ribbon {
+  display: inline-block;
+  position: relative;
+  padding: 15px 20px;
+  font-size: 20px;
+  color: #FFF;
+  background: #a6d3c8;
+}
+.ribbon:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);/*折り返し部分*/
+}
+
+.left-patient-data {
+  margin-top: 20px;
+}
+
 .right-content {
   width: 50vw;
   height: 100vh;
+  padding: 0px 20px;
 }
+
+.right-patient-data {
+  margin-top: 20px;
+}
+
 .patient-img {
   width: 150px;
   height: 150px;
