@@ -31,7 +31,7 @@
           <%= patient.last_name %>
           <%= patient.first_name %>
           <%= medicine.start_day + medicine.day.name %>
-          <%= link_to 'お渡し済み', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :delete %>
+          <%= link_to '継続', patient_preparation_path(patient.id, id: medicine.preparation.id), method: :delete %>
         <% end %>
       <% end %>
     <% end %>
