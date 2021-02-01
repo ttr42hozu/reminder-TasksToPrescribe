@@ -11,10 +11,9 @@ class PreparationsController < ApplicationController
 
   def destroy
     @preparation = Preparation.find(params[:id])
-    unless current_user.id == @preparation.user.id
-      redirect_to root_path
+    if current_user.id = @preparation.id
+      @preparation.destroy
     end
-    @preparation.destroy
   end
   private
   
