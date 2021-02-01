@@ -13,14 +13,24 @@ class PreparationsController < ApplicationController
     @preparation = Preparation.find(params[:id])
     @medicine = Medicine.find(@preparation.medicine.id)
     @patient = Patient.find(params[:patient_id])
-    unless current_user.id == @preparation.user.id
-      redirect_to root_path
-    else
+    if current_user.id == @preparation.user.id
       @preparation.destroy
       @medicine.destroy
       @patient.destroy
     end
+    redirect_to root_path
   end
+  
+  def update
+    @preparation = Preparation.find(params[:id])
+    @medicine = Medicine.find(@preparation.medicine.id)
+    if current_user.id == @preparation.user.id
+      @preparation.destroy
+      @medicine.update(start_day: @medicine.start_day + @medicine.day.name)
+    end
+    redirect_to root_path
+  end
+
   private
   
   def preparation_params
