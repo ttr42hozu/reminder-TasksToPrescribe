@@ -1,3 +1,5 @@
+# 概要
+
 ## users テーブル
 
 | Column             | Type   | Option                    |
@@ -48,5 +50,3 @@ has_one :preparation
 ### Association
 belongs_to :medicines
 belongs_to :user
-
-# 概要
