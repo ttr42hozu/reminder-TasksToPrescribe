@@ -1,22 +1,45 @@
 <%= render "shared/header"%>
-<%= form_with model: @patient_medicine, url: patients_path, local: true do |f| %>
-<%= render 'shared/error_messages', model: f.object %>
-  患者画像
-  <%= f.file_field :image %>
-  カルテNO
-  <%= f.text_field :medical_record_number, placeholder: "0123-1" %>
-  名前
-  <%= f.text_field :last_name, placeholder: "例）田中" %>
-  <%= f.text_field :first_name, placeholder: "例）ニャンコ" %>
-  お薬名
-  <%= f.text_field :name %>
-  用法
-  <%= f.collection_select(:usage_id, Usage.all, :id, :name, {}, {}) %>
-  用量
-  <%= f.collection_select(:dose_id, Dose.all, :id, :name, {}, {}) %>
-  日数（日）
-  <%= f.collection_select(:day_id, Day.all, :id, :name, {}, {}) %>
-  開始日
-  <%= f.date_field :start_day %>
-  <%= f.submit '登録'%>
-<% end %>
+<div class='patient-medicine-registration-main'>
+  <div class='patient-medicine-registration-title'>登録情報を入力</div>
+  <ul>
+    <%= form_with model: @patient_medicine, url: patients_path, local: true do |f| %>
+    <li>
+      患者画像
+      <%= f.file_field :image %>
+    </li>
+    <li>
+      カルテNO
+      <%= f.text_field :medical_record_number, placeholder: "0123-1" %>
+    </li>
+    <li>
+      名前
+      <%= f.text_field :last_name, placeholder: "例）田中" %>
+      <%= f.text_field :first_name, placeholder: "例）ニャンコ" %>
+    </li>
+    <li>
+      お薬名
+      <%= f.text_field :name %>
+    </li>
+    <li>
+      用法
+      <%= f.collection_select(:usage_id, Usage.all, :id, :name, {}, {}) %>
+    </li>
+    <li>
+      用量
+      <%= f.collection_select(:dose_id, Dose.all, :id, :name, {}, {}) %>
+    </li>
+    <li>
+      日数（日）
+      <%= f.collection_select(:day_id, Day.all, :id, :name, {}, {}) %>
+    </li>
+    <li>
+      開始日
+      <%= f.date_field :start_day %>
+    </li>
+    <li>
+      <%= f.submit '登録'%>
+    </li>
+  </ul>
+  <%= render 'shared/error_messages', model: f.object %>
+  <% end %>
+</div>
