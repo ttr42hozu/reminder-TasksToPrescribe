@@ -3,6 +3,21 @@
 
 # 概要
 
+# App URL
+
+# テスト用アカウント
+
+# 利用方法
+
+# 課題解決
+
+# 要件定義
+
+# 機能一覧
+
+# 実装予定機能
+
+# データベース設計
 ## users テーブル
 
 | Column             | Type   | Option                    |
@@ -53,3 +68,5 @@ has_one :preparation
 ### Association
 belongs_to :medicines
 belongs_to :user
+
+# ローカルでの動作方法
