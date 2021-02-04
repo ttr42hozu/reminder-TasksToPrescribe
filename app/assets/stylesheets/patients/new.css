@@ -6,4 +6,9 @@
 .patient-medicine-registration-title{
   text-align: center;
   font-size: 30px;
+  border-bottom: 1px solid black;
+}
+
+.patient-medicine-registration-form {
+  padding: 10px;
 }

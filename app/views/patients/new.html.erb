@@ -3,40 +3,40 @@
   <div class='patient-medicine-registration-title'>登録情報を入力</div>
   <ul>
     <%= form_with model: @patient_medicine, url: patients_path, local: true do |f| %>
-    <li>
+    <li class='patient-medicine-registration-form'>
       患者画像
       <%= f.file_field :image %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       カルテNO
       <%= f.text_field :medical_record_number, placeholder: "0123-1" %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       名前
       <%= f.text_field :last_name, placeholder: "例）田中" %>
       <%= f.text_field :first_name, placeholder: "例）ニャンコ" %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       お薬名
       <%= f.text_field :name %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       用法
       <%= f.collection_select(:usage_id, Usage.all, :id, :name, {}, {}) %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       用量
       <%= f.collection_select(:dose_id, Dose.all, :id, :name, {}, {}) %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       日数（日）
       <%= f.collection_select(:day_id, Day.all, :id, :name, {}, {}) %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       開始日
       <%= f.date_field :start_day %>
     </li>
-    <li>
+    <li class='patient-medicine-registration-form'>
       <%= f.submit '登録'%>
     </li>
   </ul>
