@@ -1,4 +1,6 @@
 class PatientsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @patients = Patient.all.includes(:medicines)
   end

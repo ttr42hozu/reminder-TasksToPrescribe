@@ -5,7 +5,7 @@
     <div class='left-patient-data'>
       <% @patients.each do |patient| %>
         <% patient.medicines.each do |medicine|%>
-          <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.blank? %>
+          <% if Date.today == medicine.start_day + medicine.day.name && medicine.preparation.blank? && patient.user.id == current_user.id %>
             <% if patient.image.present? %>
               <%= image_tag patient.image, class: 'patient-img'%>
             <% else %>
