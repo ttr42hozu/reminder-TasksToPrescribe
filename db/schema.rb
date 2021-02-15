@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2021_01_28_103115) do
     t.string "name", null: false
     t.integer "usage_id", null: false
     t.integer "dose_id", null: false
-    t.integer "day_id"
+    t.integer "day_id", null: false
+    t.date "start_day", null: false
     t.bigint "patient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "start_day"
     t.index ["patient_id"], name: "index_medicines_on_patient_id"
   end
 
