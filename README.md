@@ -4,7 +4,7 @@
 # 概要
 
 # App URL
-
+https://reminder-taskstoprescribe.herokuapp.com/
 # テスト用アカウント
 
 # 利用方法
