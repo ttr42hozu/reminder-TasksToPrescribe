@@ -6,16 +6,10 @@
 # App URL
 https://reminder-taskstoprescribe.herokuapp.com/
 # テスト用アカウント
-
+Email　test@example1
+password　test1test1
 # 利用方法
-
-# 課題解決
-
-# 要件定義
-
-# 機能一覧
-
-# 実装予定機能
+患者とその処方情報を登録することで、処方日になったらトップページに表示することでユーザーに教えてくれます。
 
 # データベース設計
 ## users テーブル
