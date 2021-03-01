@@ -69,5 +69,3 @@ has_one :preparation
 ### Association
 belongs_to :medicines
 belongs_to :user
-
-# ローカルでの動作方法
